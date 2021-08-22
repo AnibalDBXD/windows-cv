@@ -1,0 +1,53 @@
+$listItemBgColor: #a3b2d2;
+
+.desktop {
+	background-image: url(../../assets/background.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+    height: 100%;
+}
+
+.applicationList {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    gap: 1px;
+}
+
+.applicationList__item {
+    background: none;
+    width: 100px;
+    height: 70px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    &:hover {
+        background-color: rgba($listItemBgColor, 40%);
+        border-color: $listItemBgColor;
+    }
+    &:active {
+        background-color: $listItemBgColor;
+    }
+    &:focus {
+        background-color: $listItemBgColor;
+    }
+    .item_image {
+        width: 50px;
+        height: 50px;
+        user-select: none;
+    }
+    .item_name {
+        color: white;
+        text-shadow: 0 0 10px black;
+        user-select: none;
+    }
+}
