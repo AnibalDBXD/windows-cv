@@ -40,6 +40,9 @@
     }
     &:active {
         box-shadow: 0px 0px 45px 1px rgba(0,0,0,0.1) inset;
+        img {
+            transform: translate(1px , 1px);
+        }
     }
     position: relative;
     width: 60px;
