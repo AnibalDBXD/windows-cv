@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./index.module.scss";
 import APPLICATIONS from '../../contants';
+import Clock from './Clock';
 
 const Navbar = (): JSX.Element => {
   return (
@@ -15,6 +16,7 @@ const Navbar = (): JSX.Element => {
           </li>
         ))
       }
+      <Clock />
     </ul>
   );
 };
