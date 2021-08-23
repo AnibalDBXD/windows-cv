@@ -7,13 +7,14 @@ interface IDesktop {
 }
 
 const Desktop = ({ children }: IDesktop): JSX.Element => {
+
   return (
     <div className={styles["desktop"]}>
       <ul className={styles["applicationList"]}>
         {
-          APPLICATIONS.map(({icon, name}) => (
+          APPLICATIONS.map(({icon, name, onClick}) => (
             <li key={name}>
-              <button className={styles["applicationList__item"]}>
+              <button className={styles["applicationList__item"]} onDoubleClick={onClick}>
                 <img className={styles["item_image"]} src={icon} />
                 <span className={styles["item_name"]}>{name}</span>
               </button>

@@ -10,8 +10,8 @@ const Navbar = (): JSX.Element => {
         <button className={styles["windows__button"]} />
       </li>
       {
-        APPLICATIONS.map(({ icon, name }) => (
-          <li className={styles["navbar__item"]} key={name}>
+        APPLICATIONS.map(({ icon, name, onClick }) => (
+          <li className={styles["navbar__item"]} key={name} onClick={onClick}>
             <img src={icon} />
           </li>
         ))
