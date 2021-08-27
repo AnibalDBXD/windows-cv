@@ -8,6 +8,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "7.css": "^0.4.1",
+    "framer-motion": "^4.1.17",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },

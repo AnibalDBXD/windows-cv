@@ -1,19 +1,23 @@
 interface IApplications {
     name: string;
-    onClick?: () => void;
+    src?: string;
     icon: string;
+  id: number;
 }
 
 const APPLICATIONS: IApplications[] = [
   {
     name: "CV",
     icon: "src/assets/icons/pdf.png",
-    onClick: (): void => alert("CV")
+    src: "../src/assets/cv.pdf",
+    id: 1
   },
   {
     name: "Portfolio",
     icon: "src/assets/icons/chrome.png",
-    onClick: (): void => alert("Portoflio")
+    src: "../src/assets/cv.pdf",
+    id: 2
+
   }
 ];
 

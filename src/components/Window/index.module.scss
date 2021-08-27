@@ -1,0 +1,26 @@
+@import "7.css/gui/_variables.scss";
+.window {
+    font: 9pt "Segoe UI", sans-serif;
+    width: fit-content;
+    border-radius: 6px !important;
+    &::before {
+        border-radius: 6px !important;
+    }
+    z-index: 10;
+    &.window__focus{
+        z-index: 20;
+    }
+}
+
+.title-bar-controls {
+    border-radius: 0 0 5px 5px;
+    margin-top: -6px;
+}
+
+.window-body {
+    padding: 0 !important;
+    border: 0 !important;
+    background: none;
+    box-shadow: none;
+    height: 400px;
+}
