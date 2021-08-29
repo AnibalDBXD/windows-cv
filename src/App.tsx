@@ -27,7 +27,7 @@ function App(): JSX.Element {
 
   return (
     <Desktop addWindow={handleAddWindow}>
-      <Navbar addWindow={handleAddWindow} />
+      <Navbar addWindow={handleAddWindow} openWindows={openWindows} />
       {
         openWindows?.map(({ src, title }) => (
           <Window

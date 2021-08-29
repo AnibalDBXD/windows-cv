@@ -17,7 +17,7 @@ export interface IWindowProps extends IWindow {
 const Window = ({ src, title, deleteWindow, focus, setFocus }: IWindowProps): JSX.Element => {
   return (
     <motion.div
-      className={`window glass ${styles["window"]} ${focus && styles["window__focus"]}`}
+      className={`window glass ${styles["window"]} ${focus && styles["window--focus"]}`}
       drag
       dragElastic={false}
       dragMomentum={false}
