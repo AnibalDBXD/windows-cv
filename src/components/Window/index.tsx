@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./index.module.scss";
 import "7.css/gui/_window.scss";
 import { motion } from "framer-motion";
@@ -15,10 +15,13 @@ export interface IWindowProps extends IWindow {
 }
 
 const Window = ({ src, title, deleteWindow, focus, setFocus }: IWindowProps): JSX.Element => {
+  const [isFullScreen, setFullScreen] = useState(false);
   return (
     <motion.div
-      className={`window glass ${styles["window"]} ${focus && styles["window--focus"]}`}
-      drag
+      className={
+        `window glass ${isFullScreen && styles["window--maximized"]} ${styles["window"]} ${focus && styles["window--focus"]}`
+      }
+      drag={!isFullScreen}
       dragElastic={false}
       dragMomentum={false}
       onClick={(): void => setFocus(title)}
@@ -29,12 +32,15 @@ const Window = ({ src, title, deleteWindow, focus, setFocus }: IWindowProps): JS
         </div>
         <div className={`title-bar-controls ${styles["title-bar-controls"]} `}>
           <button aria-label="Minimize" />
-          <button aria-label="Maximize" />
+          <button
+            aria-label={isFullScreen ? "Restore" : "Maximize"}
+            onClick={(): void => setFullScreen(currentValue => !currentValue)}
+          />
           <button aria-label="Close" onClick={(): void => deleteWindow(title)} />
         </div>
       </div>
-      <div className={`window-body ${styles["window-body"]}`}>
-        <iframe height="400" src={src} title={title} width="600" />
+      <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>
+        <iframe src={src} title={title} />
       </div>
     </motion.div>
   );

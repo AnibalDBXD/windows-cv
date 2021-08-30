@@ -10,6 +10,12 @@
     &.window--focus{
         z-index: 20;
     }
+    &.window--maximized{
+        position: fixed;
+        left: -7px;
+        top: 0;
+        transform: none !important;
+    }
 }
 
 .title-bar-controls {
@@ -23,4 +29,15 @@
     background: none;
     box-shadow: none;
     height: 400px;
+    width: 600px;
+
+    & > * {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.window-body--maximized{
+        width: 100vw;
+        height: 100vh;
+    }
 }
