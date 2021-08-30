@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./index.module.scss";
-import APPLICATIONS from '../../contants';
+import APPLICATIONS from '../../constants';
 
 interface IDesktop {
   children: React.ReactNode;
