@@ -1,6 +1,7 @@
-import PDF from "./assets/icons/pdf.png";
+import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
-
+const PDF = new URL('./assets/cv.pdf', import.meta.url);
+console.log(PDF);
 interface IApplications {
     name: string;
     src?: string;
@@ -11,8 +12,8 @@ interface IApplications {
 const APPLICATIONS: IApplications[] = [
   {
     name: "CV",
-    icon: PDF,
-    src: "../src/assets/cv.pdf",
+    icon: PDFIcon,
+    src: PDF.href,
     id: 1
   },
   {
