@@ -1,12 +1,12 @@
+import PDF from "./assets/icons/pdf.png";
+import CHROME from "./assets/icons/chrome.png";
+
 interface IApplications {
     name: string;
     src?: string;
     icon: string;
   id: number;
 }
-
-const PDF = "src/assets/icons/pdf.png";
-const CHROME = "src/assets/icons/chrome.png";
 
 const APPLICATIONS: IApplications[] = [
   {
