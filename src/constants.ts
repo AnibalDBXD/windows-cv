@@ -1,7 +1,6 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
-console.log(PDF);
 interface IApplications {
     name: string;
     src?: string;
