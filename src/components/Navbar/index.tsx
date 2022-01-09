@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./index.module.scss";
-import APPLICATIONS from '../../constants';
+import { APPLICATIONS } from '../../constants';
 import Clock from './Clock';
 import { IWindow } from '../Window';
 

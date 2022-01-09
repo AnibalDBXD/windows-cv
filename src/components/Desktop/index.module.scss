@@ -50,3 +50,9 @@ $listItemBgColor: #a3b2d2;
         user-select: none;
     }
 }
+
+.vertical-container {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}

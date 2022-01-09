@@ -1,32 +1,45 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
+import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
-interface IApplications {
-    name: string;
-    src?: string;
-    icon: string;
-  id: number;
-}
 
-const APPLICATIONS: IApplications[] = [
+export const APPLICATIONS: IApplications[] = [
   {
     name: "CV",
     icon: PDFIcon,
     src: PDF.href,
-    id: 1
   },
   {
     name: "Portfolio",
     icon: CHROME,
     src: "https://anibal.cf",
-    id: 2
   },
   {
     name: "Blog",
     icon: CHROME,
     src: "https://anibaldbxd.cf",
-    id: 2
   },
 ];
 
-export default APPLICATIONS;
+export const DRAWS: IApplications[] = [
+  {
+    icon: CHROME,
+    name: "Calendary",
+    src: "https://css-calendary.vercel.app/",
+  },
+  {
+    icon: CHROME,
+    name: "Clock",
+    src: "https://css-clock.vercel.app/",
+  },
+  {
+    icon: CHROME,
+    name: "3D Cube",
+    src: "https://css-minecraft-cube.vercel.app/",
+  },
+  {
+    icon: CHROME,
+    name: "Cake",
+    src: "https://css-cake.vercel.app/",
+  }
+];

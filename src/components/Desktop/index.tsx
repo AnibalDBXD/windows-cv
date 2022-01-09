@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./index.module.scss";
-import APPLICATIONS from '../../constants';
+import { APPLICATIONS, DRAWS } from '../../constants';
+import ShortCuts from './ShortCuts';
 
 interface IDesktop {
   children: React.ReactNode;
@@ -10,21 +11,8 @@ interface IDesktop {
 const Desktop = ({ children, addWindow }: IDesktop): JSX.Element => {
   return (
     <div className={styles["desktop"]}>
-      <ul className={styles["applicationList"]}>
-        {
-          APPLICATIONS.map(({icon, name, src}) => (
-            <li key={name}>
-              <button
-                className={styles["applicationList__item"]}
-                onDoubleClick={(): void => addWindow(name, src || "")}
-              >
-                <img className={styles["item_image"]} src={icon} />
-                <span className={styles["item_name"]}>{name}</span>
-              </button>
-            </li>
-          ))
-        }
-      </ul>
+      <ShortCuts applications={APPLICATIONS} onClick={addWindow} />
+      <ShortCuts applications={DRAWS} className={styles["vertical-container"]} onClick={addWindow} />
       {children}
     </div>
   );
