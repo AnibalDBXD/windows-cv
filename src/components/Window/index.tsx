@@ -12,16 +12,24 @@ export interface IWindowProps extends IWindow {
   deleteWindow: (currentTitle: string) => void;
   focus: boolean;
   setFocus: (title: string) => void;
+  index: number;
 }
 
-const Window = ({ src, title, deleteWindow, focus, setFocus }: IWindowProps): JSX.Element => {
+const Window = ({ src, title, deleteWindow, focus, setFocus, index }: IWindowProps): JSX.Element => {
   const [isFullScreen, setFullScreen] = useState(false);
 
   const handleFocus = (): void => setFocus(title);
+
+  const position = {
+    top: `${10 + (index * 4)}vh`,
+    left: `${10 + (index * 4)}vh`,
+  };
+
   return (
     <div
       className={`${focus && styles["window--focus"]} ${styles["window_container"]}`}
       onClick={handleFocus}
+      style={position}
     >
       <motion.div
         className={

@@ -29,10 +29,11 @@ function App(): JSX.Element {
     <Desktop addWindow={handleAddWindow}>
       <Navbar addWindow={handleAddWindow} openWindows={openWindows} />
       {
-        openWindows?.map(({ src, title }) => (
+        openWindows?.map(({ src, title }, index) => (
           <Window
             deleteWindow={handleDeleteWindow}
             focus={focusedWindow === title}
+            index={index}
             key={title}
             setFocus={(title: string): void => setFocusedWindow(title) }
             src={src}

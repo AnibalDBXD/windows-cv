@@ -41,8 +41,6 @@
 
 .window_container {
     position: fixed;
-    top: 10vh;
-    left: 10vh;
     bottom: 0;
     z-index: 10;
     &.window--focus{
