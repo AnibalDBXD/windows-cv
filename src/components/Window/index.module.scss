@@ -6,10 +6,6 @@
     &::before {
         border-radius: 6px !important;
     }
-    z-index: 10;
-    &.window--focus{
-        z-index: 20;
-    }
     &.window--maximized{
         position: fixed;
         left: -7px;
@@ -40,4 +36,24 @@
         width: 100vw;
         height: 88vh;
     }
+    position: relative;
+}
+
+.window_container {
+    position: fixed;
+    top: 10vh;
+    left: 10vh;
+    bottom: 0;
+    z-index: 10;
+    &.window--focus{
+        z-index: 20;
+    }
+    height: 1px;
+    width: 1px;
+}
+
+.window-focus-handler {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
