@@ -23,7 +23,7 @@ const Navbar = ({ addWindow, openWindows }: INavbar): JSX.Element => {
               key={name}
               onClick={(): void => addWindow(name, src || "")}
             >
-              <img src={icon} />
+              <img src={icon} style={{ objectFit: 'contain' }} />
             </li>
           );
         }
