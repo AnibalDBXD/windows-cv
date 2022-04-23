@@ -11,6 +11,7 @@
         left: -7px;
         top: 0;
         transform: none !important;
+        height: calc(100vh - 83px);
     }
 }
 
@@ -34,7 +35,7 @@
 
     &.window-body--maximized{
         width: 100vw;
-        height: 88vh;
+        height: calc(100vh - 83px);
     }
     position: relative;
 }
