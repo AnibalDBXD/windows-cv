@@ -1,5 +1,6 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
+import GITHUB from './assets/icons/github.png';
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 
@@ -19,12 +20,17 @@ export const APPLICATIONS: IApplications[] = [
     icon: CHROME,
     src: "https://anibaldbxd.cf",
   },
+  {
+    name: "Github",
+    icon: GITHUB,
+    src: "https://github.com/AnibalDBXD/",
+  },
 ];
 
 export const DRAWS: IApplications[] = [
   {
     icon: CHROME,
-    name: "Calendary",
+    name: "Calendar",
     src: "https://css-calendary.vercel.app/",
   },
   {
@@ -41,5 +47,10 @@ export const DRAWS: IApplications[] = [
     icon: CHROME,
     name: "Cake",
     src: "https://css-cake.vercel.app/",
-  }
+  },
+  {
+    name: "Conway's game of life",
+    icon: CHROME,
+    src: "https://conway-game-of-life-eosin.vercel.app/",
+  },
 ];
