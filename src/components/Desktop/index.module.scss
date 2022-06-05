@@ -20,7 +20,7 @@ $listItemBgColor: #a3b2d2;
 .applicationList__item {
     background: none;
     width: 100px;
-    height: 70px;
+    height: fit-content;
     padding: 5px;
     display: flex;
     flex-direction: column;
