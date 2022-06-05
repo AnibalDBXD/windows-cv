@@ -1,6 +1,5 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
-import GITHUB from './assets/icons/github.png';
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 
@@ -19,12 +18,7 @@ export const APPLICATIONS: IApplications[] = [
     name: "Blog",
     icon: CHROME,
     src: "https://anibaldbxd.cf",
-  },
-  {
-    name: "Github",
-    icon: GITHUB,
-    src: "https://github.com/AnibalDBXD/",
-  },
+  }
 ];
 
 export const DRAWS: IApplications[] = [
