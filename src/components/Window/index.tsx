@@ -9,16 +9,15 @@ export interface IWindow {
 }
 
 export interface IWindowProps extends IWindow {
-  deleteWindow: (currentTitle: string) => void;
+  onClose: () => void;
+  onMinimize: () => void;
   focus: boolean;
-  setFocus: (title: string) => void;
+  onFocus: () => void;
   index: number;
 }
 
-const Window = ({ src, title, deleteWindow, focus, setFocus, index }: IWindowProps): JSX.Element => {
+const Window = ({ src, title, onClose, focus, onFocus, index, onMinimize }: IWindowProps): JSX.Element => {
   const [isFullScreen, setFullScreen] = useState(false);
-
-  const handleFocus = (): void => setFocus(title);
 
   const position = {
     top: `${10 + (index * 4)}vh`,
@@ -28,7 +27,7 @@ const Window = ({ src, title, deleteWindow, focus, setFocus, index }: IWindowPro
   return (
     <div
       className={`${focus && styles["window--focus"]} ${styles["window_container"]}`}
-      onClick={handleFocus}
+      onClick={onFocus}
       style={position}
     >
       <motion.div
@@ -38,23 +37,23 @@ const Window = ({ src, title, deleteWindow, focus, setFocus, index }: IWindowPro
         drag={!isFullScreen}
         dragElastic={false}
         dragMomentum={false}
-        onClick={handleFocus}
+        onClick={onFocus}
       >
         <div className="title-bar" style={{ paddingLeft: '1rem' }}>
           <div className="title-bar-text">
             {title}
           </div>
           <div className={`title-bar-controls ${styles["title-bar-controls"]} `}>
-            <button aria-label="Minimize" />
+            <button aria-label="Minimize" onClick={onMinimize} />
             <button
               aria-label={isFullScreen ? "Restore" : "Maximize"}
               onClick={(): void => setFullScreen(currentValue => !currentValue)}
             />
-            <button aria-label="Close" onClick={(): void => deleteWindow(title)} />
+            <button aria-label="Close" onClick={onClose} />
           </div>
         </div>
         <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>
-          {!focus && <div className={styles["window-focus-handler"]} onClick={handleFocus} />}
+          {!focus && <div className={styles["window-focus-handler"]} onClick={onFocus} />}
           <iframe src={src} title={title} />
         </div>
       </motion.div>

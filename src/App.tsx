@@ -16,7 +16,7 @@ function App(): JSX.Element {
     });
   };
 
-  const handleDeleteWindow = (currentTitle: string): void => {
+  const handleCloseWindow = (currentTitle: string): void => {
     setOpenWindows((currentWindow) => {
       if (!currentWindow.some(({ title }) => currentTitle === title)) {
         return currentWindow;
@@ -25,17 +25,22 @@ function App(): JSX.Element {
     });
   };
 
+  const handleMinimizeWindow = (currentTitle: string): void => {
+    return;
+  }
+
   return (
     <Desktop addWindow={handleAddWindow}>
       <Navbar addWindow={handleAddWindow} openWindows={openWindows} />
       {
         openWindows?.map(({ src, title }, index) => (
           <Window
-            deleteWindow={handleDeleteWindow}
+            onClose={() => handleCloseWindow(title)}
+            onMinimize={() => handleMinimizeWindow(title)}
             focus={focusedWindow === title}
             index={index}
             key={title}
-            setFocus={(title: string): void => setFocusedWindow(title) }
+            onFocus={() => setFocusedWindow(title) }
             src={src}
             title={title}
           />
