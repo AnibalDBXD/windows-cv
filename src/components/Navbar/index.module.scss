@@ -24,7 +24,7 @@
         ,hsla(0,0%,100%,.4),rgba(255, 255, 255, 0.3),hsla(0,0%,100%,0.5)),linear-gradient(
         55deg
         ,transparent,rgba(255, 255, 255, 0.3) 20%,rgba(255, 255, 255, 0.2) 50%,transparent 53%),rgb(0 0 0 / 20%);
-    border: 1px solid gray;
+    border-color: #808080 !important;
 }
 
 .navbar__item{
@@ -60,6 +60,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid transparent;
+
     img {
         width: 35px;
         height: 90%;
