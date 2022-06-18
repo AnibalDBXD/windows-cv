@@ -40,7 +40,7 @@ const Window = ({ src, title, deleteWindow, focus, setFocus, index }: IWindowPro
         dragMomentum={false}
         onClick={handleFocus}
       >
-        <div className="title-bar">
+        <div className="title-bar" style={{ paddingLeft: '1rem' }}>
           <div className="title-bar-text">
             {title}
           </div>
