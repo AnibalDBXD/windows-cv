@@ -61,12 +61,21 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
             {title}
           </div>
           <div className={`title-bar-controls ${styles["title-bar-controls"]} `}>
-            <button aria-label="Minimize" onClick={onMinimize} />
+            <button aria-label="Minimize" onClick={(event) => {
+              event.stopPropagation()
+              onMinimize()
+            }} />
             <button
               aria-label={isFullScreen ? "Restore" : "Maximize"}
-              onClick={(): void => setFullScreen(currentValue => !currentValue)}
+              onClick={(event) => {
+                event.stopPropagation()
+                setFullScreen(currentValue => !currentValue)
+              }}
             />
-            <button aria-label="Close" onClick={onClose} />
+            <button aria-label="Close" onClick={(event) => {
+              event.stopPropagation()
+              onClose()
+            }} />
           </div>
         </div>
         <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>

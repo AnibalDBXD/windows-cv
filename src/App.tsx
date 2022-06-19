@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Desktop from './components/Desktop';
 import Navbar from './components/Navbar';
 import Window, { IWindow } from "./components/Window";
+import { Helmet } from "react-helmet-async";
 
 function App(): JSX.Element {
   const [openWindows, setOpenWindows] = useState<IWindow[]>([]);
-  const [focusedWindow, setFocusedWindow] = useState("");
+  const [focusedWindow, setFocusedWindow] = useState<string | null>(null);
 
   const handleOpenWindow = (newTitle: string, src: string): void => {
     setOpenWindows((currentWindows) => {
@@ -17,6 +18,7 @@ function App(): JSX.Element {
       }
       return [{title: newTitle, src, minimized: false }, ...currentWindows];
     });
+    setFocusedWindow(newTitle);
   };
 
   const handleCloseWindow = (currentTitle: string): void => {
@@ -26,6 +28,7 @@ function App(): JSX.Element {
       }
       return currentWindows.filter(({ title }) => title !== currentTitle);
     });
+    setFocusedWindow(null);
   };
 
   const handleMinimizeWindow = (currentTitle: string): void => {
@@ -37,26 +40,32 @@ function App(): JSX.Element {
         return { title, ...window };
       });
     });
+    setFocusedWindow(null);
   }
-
+  console.log(">>> focusedWindow", focusedWindow)
   return (
-    <Desktop onOpenWindow={handleOpenWindow}>
-      <Navbar onOpenWindow={handleOpenWindow} openWindows={openWindows} />
-      {
-        openWindows.map(({ title, ...rest }, index) => (
-          <Window
-            onClose={() => handleCloseWindow(title)}
-            onMinimize={() => handleMinimizeWindow(title)}
-            focus={focusedWindow === title}
-            index={index}
-            key={title}
-            onFocus={() => setFocusedWindow(title) }
-            title={title}
-            {...rest}
-          />
-        ))
-      }
-    </Desktop>
+    <>
+      <Helmet>
+        <title>{focusedWindow || "Windows 7 CV"}</title>
+      </Helmet>
+      <Desktop onOpenWindow={handleOpenWindow}>
+        <Navbar onOpenWindow={handleOpenWindow} openWindows={openWindows} />
+        {
+          openWindows.map(({ title, ...rest }, index) => (
+            <Window
+              onClose={() => handleCloseWindow(title)}
+              onMinimize={() => handleMinimizeWindow(title)}
+              focus={focusedWindow === title}
+              index={index}
+              key={title}
+              onFocus={() => setFocusedWindow(title) }
+              title={title}
+              {...rest}
+            />
+          ))
+        }
+      </Desktop>
+    </>
   );
 }
 
