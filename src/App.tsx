@@ -46,7 +46,7 @@ function App(): JSX.Element {
   return (
     <>
       <Helmet>
-        <title>{focusedWindow || "Windows 7 CV"}</title>
+        <title>{focusedWindow || "Windows 7 - Anibal Portfolio"}</title>
       </Helmet>
       <Desktop onOpenWindow={handleOpenWindow}>
         <Navbar onOpenWindow={handleOpenWindow} openWindows={openWindows} />
