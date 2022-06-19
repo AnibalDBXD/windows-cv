@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./index.module.scss";
 import "7.css/gui/_window.scss";
 import { motion } from "framer-motion";
@@ -19,11 +19,18 @@ export interface IWindowProps extends IWindow {
 
 const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, index, onMinimize, minimized }) => {
   const [isFullScreen, setFullScreen] = useState(false);
-  const position = {
+  const [position, setPosition] = useState({
     top: `${10 + (index * 4)}vh`,
     left: `${10 + (index * 4)}vh`,
-    display: minimized ? "none" : "block",
-  };
+    display: "block",
+  });
+
+  useEffect(() => {
+    setPosition({
+      ...position,
+      display: minimized ? "none" : "block",
+    })
+  }, [minimized])
 
   return (
     <div
@@ -35,7 +42,16 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
         className={
           `window glass ${isFullScreen && styles["window--maximized"]} ${styles["window"]}`
         }
-        drag={!isFullScreen}
+        drag={true}
+        onDrag={(event: PointerEvent) => {
+          if (isFullScreen) {
+            setPosition({
+              ...position,
+              top: `${event.y}px`,
+            })
+            setFullScreen(false);
+          }
+        }}
         dragElastic={false}
         dragMomentum={false}
         onClick={onFocus}
