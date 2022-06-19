@@ -7,33 +7,43 @@ function App(): JSX.Element {
   const [openWindows, setOpenWindows] = useState<IWindow[]>([]);
   const [focusedWindow, setFocusedWindow] = useState("");
 
-  const handleAddWindow = (newTitle: string, src: string): void => {
-    setOpenWindows((currentWindow) => {
-      if (currentWindow.some(({ title }) => newTitle === title)) {
-        return currentWindow;
+  const handleOpenWindow = (newTitle: string, src: string): void => {
+    setOpenWindows((currentWindows) => {
+      const currentWindowIndex = currentWindows.findIndex(({ title }) => title === newTitle);
+      if (currentWindowIndex !== -1) {
+        const window = currentWindows[currentWindowIndex];
+        // change window minimized state
+        return [...currentWindows.slice(0, currentWindowIndex), { ...window, minimized: !window.minimized }, ...currentWindows.slice(currentWindowIndex + 1)];
       }
-      return [{title: newTitle, src }, ...currentWindow];
+      return [{title: newTitle, src, minimized: false }, ...currentWindows];
     });
   };
 
   const handleCloseWindow = (currentTitle: string): void => {
-    setOpenWindows((currentWindow) => {
-      if (!currentWindow.some(({ title }) => currentTitle === title)) {
-        return currentWindow;
+    setOpenWindows((currentWindows) => {
+      if (!currentWindows.some(({ title }) => currentTitle === title)) {
+        return currentWindows;
       }
-      return currentWindow.filter(({ title }) => title !== currentTitle);
+      return currentWindows.filter(({ title }) => title !== currentTitle);
     });
   };
 
   const handleMinimizeWindow = (currentTitle: string): void => {
-    return;
+    setOpenWindows((currentWindows) => {
+      return currentWindows.map(({ title, ...window }) => {
+        if (title === currentTitle) {
+          return { ...window, title, minimized: true };
+        }
+        return { title, ...window };
+      });
+    });
   }
 
   return (
-    <Desktop addWindow={handleAddWindow}>
-      <Navbar addWindow={handleAddWindow} openWindows={openWindows} />
+    <Desktop onOpenWindow={handleOpenWindow}>
+      <Navbar onOpenWindow={handleOpenWindow} openWindows={openWindows} />
       {
-        openWindows?.map(({ src, title }, index) => (
+        openWindows.map(({ title, ...rest }, index) => (
           <Window
             onClose={() => handleCloseWindow(title)}
             onMinimize={() => handleMinimizeWindow(title)}
@@ -41,8 +51,8 @@ function App(): JSX.Element {
             index={index}
             key={title}
             onFocus={() => setFocusedWindow(title) }
-            src={src}
             title={title}
+            {...rest}
           />
         ))
       }

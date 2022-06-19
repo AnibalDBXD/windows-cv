@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 export interface IWindow {
   src: string;
   title: string;
+  minimized: boolean;
 }
 
 export interface IWindowProps extends IWindow {
@@ -16,12 +17,12 @@ export interface IWindowProps extends IWindow {
   index: number;
 }
 
-const Window = ({ src, title, onClose, focus, onFocus, index, onMinimize }: IWindowProps): JSX.Element => {
+const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, index, onMinimize, minimized }) => {
   const [isFullScreen, setFullScreen] = useState(false);
-
   const position = {
     top: `${10 + (index * 4)}vh`,
     left: `${10 + (index * 4)}vh`,
+    display: minimized ? "none" : "block",
   };
 
   return (

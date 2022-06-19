@@ -5,11 +5,11 @@ import Clock from './Clock';
 import { IWindow } from '../Window';
 
 interface INavbar {
-  addWindow: (title: string, src: string) => void;
+  onOpenWindow: (title: string, src: string) => void;
   openWindows: IWindow[];
 }
 
-const Navbar = ({ addWindow, openWindows }: INavbar): JSX.Element => {
+const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
   return (
     <ul className={styles["navbar"]}>
       <li className={styles["windows"]}>
@@ -21,7 +21,7 @@ const Navbar = ({ addWindow, openWindows }: INavbar): JSX.Element => {
           return (
             <li className={`${styles["navbar__item"]} ${isOpen && styles["navbar--open"]}`}
               key={name}
-              onClick={(): void => addWindow(name, src || "")}
+              onClick={() => onOpenWindow(name, src || "")}
             >
               <img src={icon} style={{ objectFit: 'contain' }} />
             </li>

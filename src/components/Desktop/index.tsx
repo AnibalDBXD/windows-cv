@@ -5,14 +5,14 @@ import ShortCuts from './ShortCuts';
 
 interface IDesktop {
   children: React.ReactNode;
-  addWindow: (title: string, src: string) => void;
+  onOpenWindow: (title: string, src: string) => void;
 }
 
-const Desktop = ({ children, addWindow }: IDesktop): JSX.Element => {
+const Desktop = ({ children, onOpenWindow }: IDesktop): JSX.Element => {
   return (
     <div className={styles["desktop"]}>
-      <ShortCuts applications={APPLICATIONS} onClick={addWindow} />
-      <ShortCuts applications={DRAWS} className={styles["vertical-container"]} onClick={addWindow} />
+      <ShortCuts applications={APPLICATIONS} onClick={onOpenWindow} />
+      <ShortCuts applications={DRAWS} className={styles["vertical-container"]} onClick={onOpenWindow} />
       {children}
     </div>
   );
