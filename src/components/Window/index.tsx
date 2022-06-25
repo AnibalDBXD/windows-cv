@@ -46,6 +46,9 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
         dragElastic={false}
         dragMomentum={false}
         onClick={onFocus}
+        onDoubleClick={(): void => {
+          setFullScreen(!isFullScreen);
+        }}
         onDrag={(event: PointerEvent): void => {
           if (isFullScreen) {
             setPosition({
@@ -71,7 +74,7 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
               aria-label={isFullScreen ? "Restore" : "Maximize"}
               onClick={(event): void => {
                 event.stopPropagation();
-                setFullScreen(currentValue => !currentValue);
+                setFullScreen(!isFullScreen);
               }}
             />
             <button aria-label="Close"
