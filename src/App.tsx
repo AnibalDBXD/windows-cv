@@ -41,8 +41,7 @@ function App(): JSX.Element {
       });
     });
     setFocusedWindow(null);
-  }
-  console.log(">>> focusedWindow", focusedWindow)
+  };
   return (
     <>
       <Helmet>
@@ -53,12 +52,12 @@ function App(): JSX.Element {
         {
           openWindows.map(({ title, ...rest }, index) => (
             <Window
-              onClose={() => handleCloseWindow(title)}
-              onMinimize={() => handleMinimizeWindow(title)}
               focus={focusedWindow === title}
               index={index}
               key={title}
-              onFocus={() => setFocusedWindow(title) }
+              onClose={(): void => handleCloseWindow(title)}
+              onFocus={(): void => setFocusedWindow(title) }
+              onMinimize={(): void => handleMinimizeWindow(title)}
               title={title}
               {...rest}
             />

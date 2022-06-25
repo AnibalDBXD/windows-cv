@@ -29,8 +29,8 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
     setPosition({
       ...position,
       display: minimized ? "none" : "block",
-    })
-  }, [minimized])
+    });
+  }, [minimized]);
 
   return (
     <div
@@ -43,39 +43,43 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
           `window glass ${isFullScreen && styles["window--maximized"]} ${styles["window"]}`
         }
         drag={true}
-        onDrag={(event: PointerEvent) => {
+        dragElastic={false}
+        dragMomentum={false}
+        onClick={onFocus}
+        onDrag={(event: PointerEvent): void => {
           if (isFullScreen) {
             setPosition({
               ...position,
               top: `${event.y}px`,
-            })
+            });
             setFullScreen(false);
           }
         }}
-        dragElastic={false}
-        dragMomentum={false}
-        onClick={onFocus}
       >
         <div className="title-bar" style={{ paddingLeft: '1rem' }}>
           <div className="title-bar-text">
             {title}
           </div>
           <div className={`title-bar-controls ${styles["title-bar-controls"]} `}>
-            <button aria-label="Minimize" onClick={(event) => {
-              event.stopPropagation()
-              onMinimize()
-            }} />
-            <button
-              aria-label={isFullScreen ? "Restore" : "Maximize"}
-              onClick={(event) => {
-                event.stopPropagation()
-                setFullScreen(currentValue => !currentValue)
+            <button aria-label="Minimize"
+              onClick={(event): void => {
+                event.stopPropagation();
+                onMinimize();
               }}
             />
-            <button aria-label="Close" onClick={(event) => {
-              event.stopPropagation()
-              onClose()
-            }} />
+            <button
+              aria-label={isFullScreen ? "Restore" : "Maximize"}
+              onClick={(event): void => {
+                event.stopPropagation();
+                setFullScreen(currentValue => !currentValue);
+              }}
+            />
+            <button aria-label="Close"
+              onClick={(event): void => {
+                event.stopPropagation();
+                onClose();
+              }}
+            />
           </div>
         </div>
         <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>

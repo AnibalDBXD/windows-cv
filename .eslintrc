@@ -1,5 +1,13 @@
 {
     "extends": [
         "dbxd"
-    ]
+    ],
+    "rules": {
+       "no-console": "warn"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 }

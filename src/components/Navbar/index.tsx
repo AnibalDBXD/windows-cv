@@ -14,8 +14,8 @@ const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
   return (
     <>
       <Helmet>
-        <link rel="prefetch" href="src/assets/icons/windows2.png" />
-        <link rel="prefetch" href="src/assets/icons/windows3.png" />
+        <link href="src/assets/icons/windows2.png" rel="prefetch" />
+        <link href="src/assets/icons/windows3.png" rel="prefetch" />
       </Helmet>
       <ul className={styles["navbar"]}>
         <li className={styles["windows"]}>
@@ -27,7 +27,7 @@ const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
             return (
               <li className={`${styles["navbar__item"]} ${isOpen && styles["navbar--open"]}`}
                 key={name}
-                onClick={() => onOpenWindow(name, src || "")}
+                onClick={(): void => onOpenWindow(name, src || "")}
               >
                 <img src={icon} style={{ objectFit: 'contain' }} />
               </li>
