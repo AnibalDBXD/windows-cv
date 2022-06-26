@@ -10,11 +10,6 @@ export const APPLICATIONS: IApplications[] = [
     src: PDF.href,
   },
   {
-    name: "Portfolio",
-    icon: CHROME,
-    src: "https://anibal.cf",
-  },
-  {
     name: "Blog",
     icon: CHROME,
     src: "https://anibaldbxd.cf",
