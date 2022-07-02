@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from "./index.module.scss";
-import { APPLICATIONS } from '../../constants';
+import { APPLICATIONS, DRAWS } from '../../constants';
 import Clock from './Clock';
 import { IWindow } from '../Window';
 import { Helmet } from "react-helmet-async";
@@ -11,6 +11,12 @@ interface INavbar {
 }
 
 const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
+  const applications = useMemo(() => {
+    const newApps = DRAWS.filter(({ name }) => {
+      return openWindows.find(({ title }) => title === name);
+    });
+    return [...APPLICATIONS, ...newApps];
+  }, [openWindows]);
   return (
     <>
       <Helmet>
@@ -22,7 +28,7 @@ const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
           <button className={styles["windows__button"]} />
         </li>
         {
-          APPLICATIONS.map(({ icon, name, src }) => {
+          applications.map(({ icon, name, src }) => {
             const isOpen = openWindows.some(({ title }) => title === name);
             return (
               <li className={`${styles["navbar__item"]} ${isOpen && styles["navbar--open"]}`}
