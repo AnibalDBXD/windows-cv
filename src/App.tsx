@@ -16,7 +16,7 @@ function App(): JSX.Element {
         // change window minimized state
         return [...currentWindows.slice(0, currentWindowIndex), { ...window, minimized: !window.minimized }, ...currentWindows.slice(currentWindowIndex + 1)];
       }
-      return [{title: newTitle, src, minimized: false }, ...currentWindows];
+      return [...currentWindows, {title: newTitle, src, minimized: false }];
     });
     setFocusedWindow(newTitle);
   };
