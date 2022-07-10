@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from "./index.module.scss";
 import "7.css/gui/_window.scss";
 import { motion } from "framer-motion";
+import Content from './Content';
 
 export interface IWindow {
   src: string;
@@ -87,7 +88,7 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
         </div>
         <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>
           {!focus && <div className={styles["window-focus-handler"]} onClick={onFocus} />}
-          <iframe src={src} title={title} />
+          <Content src={src} title={title} />
         </div>
       </motion.div>
     </div>

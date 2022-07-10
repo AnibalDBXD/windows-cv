@@ -1,7 +1,9 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
+import NOTEPAD from "./assets/icons/notepad.webp";
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
+const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
 
 export const APPLICATIONS: IApplications[] = [
   {
@@ -41,5 +43,10 @@ export const DRAWS: IApplications[] = [
     name: "Conway's game of life",
     icon: CHROME,
     src: "https://conway-game-of-life-eosin.vercel.app/",
+  },
+  {
+    name: "About me",
+    icon: NOTEPAD,
+    src: await fetch(aboutme).then(res => res.text()),
   },
 ];
