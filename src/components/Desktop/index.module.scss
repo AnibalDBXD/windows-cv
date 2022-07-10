@@ -7,6 +7,7 @@ $listItemBgColor: #a3b2d2;
 	background-position: center;
     height: 100%;
     user-select: none;
+    position: relative;
 }
 
 .applicationList {
@@ -57,4 +58,13 @@ $listItemBgColor: #a3b2d2;
     flex-direction: column;
     gap: 30px;
     margin-top: 30px;
+}
+
+.right-container {
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    flex-direction: column;
+    top: 0;
 }

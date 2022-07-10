@@ -1,5 +1,7 @@
 import PDFIcon from "./assets/icons/pdf.png";
 import CHROME from "./assets/icons/chrome.png";
+import GITHUB from "./assets/icons/github.png";
+import LINKEDIN from "./assets/icons/linkedin.png";
 import NOTEPAD from "./assets/icons/notepad.webp";
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
@@ -49,4 +51,19 @@ export const DRAWS: IApplications[] = [
     icon: NOTEPAD,
     src: await fetch(aboutme).then(res => res.text()),
   },
+];
+
+export const LINKS: IApplications[] = [
+  {
+    newTab: true,
+    icon: GITHUB,
+    name: "Github",
+    src: "https://github.com/AnibalDBXD"
+  },
+  {
+    newTab: true,
+    icon: LINKEDIN,
+    name: "LinkedIn",
+    src: "https://www.linkedin.com/in/anibaloz"
+  }
 ];
