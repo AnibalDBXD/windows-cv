@@ -24,7 +24,7 @@ The technologies I use
 - 📚 Apollo.
 - And CSS frameworks like TailwindCSS, ChakraUI, MaterialUI etc...
 
-What it like?
+what do I like??
 -------------------
 
 I like to contribute to open-source projects.
