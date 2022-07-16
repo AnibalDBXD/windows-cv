@@ -49,7 +49,7 @@ export const DRAWS: IApplications[] = [
   {
     name: "About me",
     icon: NOTEPAD,
-    src: await fetch(aboutme).then(res => res.text()) as string,
+    src: await fetch(aboutme.href).then(res => res.text()),
   },
 ];
 
