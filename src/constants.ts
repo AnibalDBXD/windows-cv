@@ -16,7 +16,7 @@ export const APPLICATIONS: IApplications[] = [
   {
     name: "Blog",
     icon: CHROME,
-    src: "https://anibaldbxd.cf",
+    src: "https://anibaldbxd-blog.vercel.app",
   }
 ];
 
