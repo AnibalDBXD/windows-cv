@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "7.css": "0.7.0",
