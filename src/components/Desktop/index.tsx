@@ -2,10 +2,11 @@ import React from 'react';
 import styles from "./index.module.scss";
 import { APPLICATIONS, DRAWS, LINKS } from '../../constants';
 import ShortCuts from './ShortCuts';
+import { IApplications } from '../../types';
 
 interface IDesktop {
   children: React.ReactNode;
-  onOpenWindow: (title: string, src: string) => void;
+  onOpenWindow: (app: IApplications) => void;
 }
 
 const Desktop = ({ children, onOpenWindow }: IDesktop): JSX.Element => {

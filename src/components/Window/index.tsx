@@ -3,8 +3,9 @@ import styles from "./index.module.scss";
 import "7.css/gui/_window.scss";
 import { motion } from "framer-motion";
 import Content from './Content';
+import { IApplications } from '../../types';
 
-export interface IWindow {
+export interface IWindow extends Pick<IApplications, "minWith" | "minHeight" | "defaultFullScreen"> {
   src: string;
   title: string;
   minimized: boolean;
@@ -18,8 +19,20 @@ export interface IWindowProps extends IWindow {
   index: number;
 }
 
-const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, index, onMinimize, minimized }) => {
-  const [isFullScreen, setFullScreen] = useState(false);
+const Window: React.FC<IWindowProps> = ({
+  src,
+  title,
+  onClose,
+  focus,
+  onFocus,
+  index,
+  onMinimize,
+  minimized,
+  defaultFullScreen = false,
+  minHeight,
+  minWith,
+}) => {
+  const [isFullScreen, setFullScreen] = useState(defaultFullScreen);
   const [position, setPosition] = useState({
     top: `${10 + (index * 4)}vh`,
     left: `${10 + (index * 4)}vh`,
@@ -32,6 +45,10 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
       display: minimized ? "none" : "block",
     });
   }, [minimized]);
+
+  const minHeightStyle = minHeight ? { minHeight: `${minHeight}px` } : {};
+  const minWidthStyle = minWith ? { minWidth: `${minWith}px` } : {};
+  const windowBodyStyle = { ...minHeightStyle, ...minWidthStyle };
 
   return (
     <div
@@ -86,7 +103,7 @@ const Window: React.FC<IWindowProps> = ({ src, title, onClose, focus, onFocus, i
             />
           </div>
         </div>
-        <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`}>
+        <div className={`window-body ${styles["window-body"]} ${isFullScreen && styles["window-body--maximized"]}`} style={windowBodyStyle}>
           {!focus && <div className={styles["window-focus-handler"]} onClick={onFocus} />}
           <Content src={src} title={title} />
         </div>

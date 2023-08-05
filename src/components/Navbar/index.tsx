@@ -4,9 +4,10 @@ import { APPLICATIONS, DRAWS } from '../../constants';
 import Clock from './Clock';
 import { IWindow } from '../Window';
 import { Helmet } from "react-helmet-async";
+import { IApplications } from '../../types';
 
 interface INavbar {
-  onOpenWindow: (title: string, src: string) => void;
+  onOpenWindow: (app: IApplications) => void;
   openWindows: IWindow[];
 }
 
@@ -28,12 +29,13 @@ const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
           <button className={styles["windows__button"]} />
         </li>
         {
-          applications.map(({ icon, name, src }) => {
+          applications.map((app) => {
+            const { icon, name } = app;
             const isOpen = openWindows.some(({ title }) => title === name);
             return (
               <li className={`${styles["navbar__item"]} ${isOpen && styles["navbar--open"]}`}
                 key={name}
-                onClick={(): void => onOpenWindow(name, src || "")}
+                onClick={(): void => onOpenWindow(app)}
               >
                 <img src={icon} style={{ objectFit: 'contain' }} />
               </li>

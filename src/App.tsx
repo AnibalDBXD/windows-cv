@@ -3,12 +3,14 @@ import Desktop from './components/Desktop';
 import Navbar from './components/Navbar';
 import Window, { IWindow } from "./components/Window";
 import { Helmet } from "react-helmet-async";
+import { IApplications } from './types';
 
 function App(): JSX.Element {
   const [openWindows, setOpenWindows] = useState<IWindow[]>([]);
   const [focusedWindow, setFocusedWindow] = useState<string | null>(null);
 
-  const handleOpenWindow = (newTitle: string, src: string): void => {
+  const handleOpenWindow = (newApp: IApplications): void => {
+    const { name: newTitle, src } = newApp;
     setOpenWindows((currentWindows) => {
       const currentWindowIndex = currentWindows.findIndex(({ title }) => title === newTitle);
       if (currentWindowIndex !== -1) {
@@ -16,7 +18,7 @@ function App(): JSX.Element {
         // change window minimized state
         return [...currentWindows.slice(0, currentWindowIndex), { ...window, minimized: !window.minimized }, ...currentWindows.slice(currentWindowIndex + 1)];
       }
-      return [...currentWindows, {title: newTitle, src, minimized: false }];
+      return [...currentWindows, { ...newApp, title: newTitle, src, minimized: false }];
     });
     setFocusedWindow(newTitle);
   };

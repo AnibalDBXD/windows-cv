@@ -3,6 +3,7 @@ import CHROME from "./assets/icons/chrome.png";
 import GITHUB from "./assets/icons/github.png";
 import LINKEDIN from "./assets/icons/linkedin.png";
 import NOTEPAD from "./assets/icons/notepad.webp";
+import BAD_APPLE from "./assets/icons/bad_apple.png";
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
@@ -17,6 +18,14 @@ export const APPLICATIONS: IApplications[] = [
     name: "Blog",
     icon: CHROME,
     src: "https://anibaldbxd-blog.vercel.app",
+  },
+  {
+    name: "Bad Apple ASCII",
+    icon: BAD_APPLE,
+    src: "https://bad-apple-ascii-textarea.vercel.app/",
+    minWith: 950,
+    minHeight: 600,
+    defaultFullScreen: true,
   }
 ];
 
