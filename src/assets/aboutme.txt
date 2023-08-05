@@ -1,15 +1,18 @@
 I'm Anibal from Venezuela
 
 I'm a software developer with a passion for building software.
-I'm currently working as a full-stack developer at a company called Cobuild lab where I work on a variety of projects.
+I'm currently working as a Frontend Developer at Zeleri
 
 When I'm not working on a project, I'm probably coding a side project (like this) or learning something new.
 
 My current experience
 -------------------
 
+- Zeleri: Frontend developer
+Nov 2022 - Current
+
 - Cobuild lab: Full-stack developer
-Since September 2021 - Current
+September 2021 - Nov 2022
 
 The technologies I use
 -------------------
@@ -17,6 +20,7 @@ The technologies I use
 - ⚛️ React.
 - 💻 Node.js.
 - △ Next.js
+- 🚀 Astro
 - 📚 JavaScript.
 - 📚 TypeScript.
 - 🎱 8base is a backend-as-a-service provider (with GraphQL).
