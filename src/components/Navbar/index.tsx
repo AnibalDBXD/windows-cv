@@ -30,12 +30,18 @@ const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
         </li>
         {
           applications.map((app) => {
-            const { icon, name } = app;
+            const { icon, name, newTab } = app;
             const isOpen = openWindows.some(({ title }) => title === name);
             return (
               <li className={`${styles["navbar__item"]} ${isOpen && styles["navbar--open"]}`}
                 key={name}
-                onClick={(): void => onOpenWindow(app)}
+                onClick={(): void => {
+                  if (newTab) {
+                    window.open(app.src, '_blank');
+                  } else {
+                    onOpenWindow(app);
+                  }
+                }}
               >
                 <img src={icon} style={{ objectFit: 'contain' }} />
               </li>
