@@ -4,6 +4,7 @@ import GITHUB from "./assets/icons/github.png";
 import LINKEDIN from "./assets/icons/linkedin.png";
 import NOTEPAD from "./assets/icons/notepad.webp";
 import BAD_APPLE from "./assets/icons/bad_apple.png";
+import GUESS_THE_GAME from "./assets/icons/guess_the_game.svg";
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
@@ -26,6 +27,12 @@ export const APPLICATIONS: IApplications[] = [
     minWith: 950,
     minHeight: 600,
     defaultFullScreen: true,
+  },
+  {
+    name: "Guess the anime",
+    icon: GUESS_THE_GAME,
+    newTab: true,
+    src: "https://guesstheanime.app/",
   }
 ];
 
