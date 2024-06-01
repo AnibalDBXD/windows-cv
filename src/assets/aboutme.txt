@@ -1,9 +1,5 @@
-I'm Anibal from Venezuela
-
-I'm a software developer with a passion for building software.
-I'm currently working as a Frontend Developer at Zeleri
-
-When I'm not working on a project, I'm probably coding a side project (like this) or learning something new.
+I'm Anibal from Venezuela a Full-stack Developer with a passion for building software.
+I'm currently working as a Full-stack Developer at Zeleri
 
 My current experience
 -------------------
@@ -26,11 +22,12 @@ The technologies I use
 - 🎱 8base is a backend-as-a-service provider (with GraphQL).
 - 📚 GraphQL.
 - 📚 Apollo.
-- And CSS frameworks like TailwindCSS, ChakraUI, MaterialUI etc...
+- And style frameworks like TailwindCSS, Shadcdn, MaterialUI etc...
 
-what do I like??
 -------------------
+what do I like??
 
-I like to contribute to open-source projects.
-I like to share my knowledge with others.
 I like to learn new things.
+I like to build things.
+I like to be creative.
+To have fun I like to play video games and watch anime!
