@@ -50,6 +50,8 @@ const Window: React.FC<IWindowProps> = ({
   const minWidthStyle = minWith ? { minWidth: `${minWith}px` } : {};
   const windowBodyStyle = { ...minHeightStyle, ...minWidthStyle };
 
+  const isPDF = src.endsWith('.pdf');
+
   return (
     <div
       className={`${focus && styles["window--focus"]} ${styles["window_container"]}`}
@@ -68,6 +70,8 @@ const Window: React.FC<IWindowProps> = ({
           setFullScreen(!isFullScreen);
         }}
         onDrag={(event: PointerEvent): void => {
+          // if it's a PDF, don't allow dragging
+          if (isPDF) return;
           if (isFullScreen) {
             setPosition({
               ...position,

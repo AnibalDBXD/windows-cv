@@ -4,10 +4,12 @@ import Navbar from './components/Navbar';
 import Window, { IWindow } from "./components/Window";
 import { Helmet } from "react-helmet-async";
 import { IApplications } from './types';
+import { useMobile } from './hooks/useMobile';
 
 function App(): JSX.Element {
   const [openWindows, setOpenWindows] = useState<IWindow[]>([]);
   const [focusedWindow, setFocusedWindow] = useState<string | null>(null);
+  const isMobile = useMobile();
 
   const handleOpenWindow = (newApp: IApplications): void => {
     const { name: newTitle, src } = newApp;
@@ -54,6 +56,7 @@ function App(): JSX.Element {
         {
           openWindows.map(({ title, ...rest }, index) => (
             <Window
+              defaultFullScreen={isMobile || rest.defaultFullScreen}
               focus={focusedWindow === title}
               index={index}
               key={title}

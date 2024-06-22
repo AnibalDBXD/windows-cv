@@ -9,6 +9,54 @@ import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
 
+export const MOBILE_NAVBAR_APPS: IApplications[] = [
+  {
+    name: "CV",
+    icon: PDFIcon,
+    src: PDF.href,
+  },
+  {
+    name: "About me",
+    icon: NOTEPAD,
+    src: await fetch(aboutme.href).then(res => res.text()),
+  },
+];
+
+export const MOBILE_APPS: IApplications[] = [
+  {
+    name: "CV",
+    icon: PDFIcon,
+    src: PDF.href,
+  },
+  {
+    name: "About me",
+    icon: NOTEPAD,
+    src: await fetch(aboutme.href).then(res => res.text()),
+  },
+  {
+    name: "Guess the anime",
+    icon: GUESS_THE_GAME,
+    src: "https://guesstheanime.app/",
+  },
+  {
+    icon: CHROME,
+    name: "Calendar",
+    src: "https://css-calendary.vercel.app/",
+  },
+  {
+    newTab: true,
+    icon: GITHUB,
+    name: "Github",
+    src: "https://github.com/AnibalDBXD"
+  },
+  {
+    newTab: true,
+    icon: LINKEDIN,
+    name: "LinkedIn",
+    src: "https://www.linkedin.com/in/anibaloz"
+  },
+];
+
 export const APPLICATIONS: IApplications[] = [
   {
     name: "CV",
@@ -16,9 +64,9 @@ export const APPLICATIONS: IApplications[] = [
     src: PDF.href,
   },
   {
-    name: "Blog",
-    icon: CHROME,
-    src: "https://anibaldbxd-blog.vercel.app",
+    name: "About me",
+    icon: NOTEPAD,
+    src: await fetch(aboutme.href).then(res => res.text()),
   },
   {
     name: "Bad Apple ASCII",
@@ -31,7 +79,8 @@ export const APPLICATIONS: IApplications[] = [
   {
     name: "Guess the anime",
     icon: GUESS_THE_GAME,
-    newTab: true,
+    minWith: 950,
+    minHeight: 600,
     src: "https://guesstheanime.app/",
   }
 ];

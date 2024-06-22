@@ -1,4 +1,5 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
+import { useMobile } from "../../hooks/useMobile";
 
 interface IContentProps {
     src: string;
@@ -36,9 +37,18 @@ const getSrcDoc = (src: string): string => `
 </html>
 `;
 
+const LazyPDFViewer = lazy(() => import('./PDFViewer'));
+
 const Content: React.FC<IContentProps> = ({ src, title }) => {
   const isUrl = src.startsWith('http');
+  const isMobile = useMobile();
+  const isPDF = src.endsWith('.pdf');
 
+  if (isMobile && isPDF) return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyPDFViewer src={src} />
+    </Suspense>
+  );
   if (isUrl) return <iframe src={src} title={title} />;
   return (
     <iframe

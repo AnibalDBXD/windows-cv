@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
 import styles from "./index.module.scss";
-import { APPLICATIONS, DRAWS } from '../../constants';
+import { APPLICATIONS, DRAWS, MOBILE_NAVBAR_APPS } from '../../constants';
 import Clock from './Clock';
 import { IWindow } from '../Window';
 import { Helmet } from "react-helmet-async";
 import { IApplications } from '../../types';
+import { useMobile } from '../../hooks/useMobile';
 
 interface INavbar {
   onOpenWindow: (app: IApplications) => void;
@@ -12,12 +13,16 @@ interface INavbar {
 }
 
 const Navbar = ({ onOpenWindow, openWindows }: INavbar): JSX.Element => {
+  const isMobile = useMobile();
+  const navbarApps = isMobile ? MOBILE_NAVBAR_APPS : APPLICATIONS;
   const applications = useMemo(() => {
     const newApps = DRAWS.filter(({ name }) => {
+      const isInNavbar = navbarApps.some(({ name }) => name === name);
+      if (isInNavbar) return false;
       return openWindows.find(({ title }) => title === name);
     });
-    return [...APPLICATIONS, ...newApps];
-  }, [openWindows]);
+    return [...navbarApps, ...newApps];
+  }, [openWindows, navbarApps]);
   return (
     <>
       <Helmet>
