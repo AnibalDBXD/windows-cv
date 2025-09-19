@@ -5,10 +5,19 @@ import Window, { IWindow } from "./components/Window";
 import { Helmet } from "react-helmet-async";
 import { IApplications } from './types';
 import { useMobile } from './hooks/useMobile';
+import { APPLICATIONS } from './constants';
 
 function App(): JSX.Element {
-  const [openWindows, setOpenWindows] = useState<IWindow[]>([]);
-  const [focusedWindow, setFocusedWindow] = useState<string | null>(null);
+  // Find the "About me" app from APPLICATIONS array to open by default
+  const aboutMeApp = APPLICATIONS.find(app => app.name === "About me");
+  const initialWindows: IWindow[] = aboutMeApp ? [{ 
+    ...aboutMeApp, 
+    title: aboutMeApp.name, 
+    minimized: false 
+  }] : [];
+  
+  const [openWindows, setOpenWindows] = useState<IWindow[]>(initialWindows);
+  const [focusedWindow, setFocusedWindow] = useState<string | null>(aboutMeApp?.name || null);
   const isMobile = useMobile();
 
   const handleOpenWindow = (newApp: IApplications): void => {
