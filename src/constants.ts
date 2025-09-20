@@ -111,11 +111,6 @@ export const DRAWS: IApplications[] = [
     icon: CHROME,
     src: "https://conway-game-of-life-eosin.vercel.app/",
   },
-  {
-    name: "About me",
-    icon: NOTEPAD,
-    src: await fetch(aboutme.href).then(res => res.text()),
-  },
 ];
 
 export const LINKS: IApplications[] = [
