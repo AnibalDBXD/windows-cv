@@ -8,16 +8,16 @@ import { useMobile } from './hooks/useMobile';
 import { APPLICATIONS } from './constants';
 
 function App(): JSX.Element {
-  // Find the "About me" app from APPLICATIONS array to open by default
-  const aboutMeApp = APPLICATIONS.find(app => app.name === "About me");
-  const initialWindows: IWindow[] = aboutMeApp ? [{ 
-    ...aboutMeApp, 
-    title: aboutMeApp.name, 
+  // Find the "About this" app from APPLICATIONS array to open by default
+  const aboutThisApp = APPLICATIONS.find(app => app.name === "About this");
+  const initialWindows: IWindow[] = aboutThisApp ? [{ 
+    ...aboutThisApp, 
+    title: aboutThisApp.name, 
     minimized: false 
   }] : [];
   
   const [openWindows, setOpenWindows] = useState<IWindow[]>(initialWindows);
-  const [focusedWindow, setFocusedWindow] = useState<string | null>(aboutMeApp?.name || null);
+  const [focusedWindow, setFocusedWindow] = useState<string | null>(aboutThisApp?.name || null);
   const isMobile = useMobile();
 
   const handleOpenWindow = (newApp: IApplications): void => {

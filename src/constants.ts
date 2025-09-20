@@ -8,8 +8,14 @@ import GUESS_THE_GAME from "./assets/icons/guess_the_game.svg";
 import { IApplications } from "./types";
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
 const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
+const aboutthis = new URL('./assets/aboutthis.txt', import.meta.url);
 
 export const MOBILE_NAVBAR_APPS: IApplications[] = [
+  {
+    name: "About this",
+    icon: CHROME,
+    src: await fetch(aboutthis.href).then(res => res.text()),
+  },
   {
     name: "CV",
     icon: PDFIcon,
@@ -23,6 +29,11 @@ export const MOBILE_NAVBAR_APPS: IApplications[] = [
 ];
 
 export const MOBILE_APPS: IApplications[] = [
+  {
+    name: "About this",
+    icon: CHROME,
+    src: await fetch(aboutthis.href).then(res => res.text()),
+  },
   {
     name: "CV",
     icon: PDFIcon,
@@ -58,6 +69,11 @@ export const MOBILE_APPS: IApplications[] = [
 ];
 
 export const APPLICATIONS: IApplications[] = [
+  {
+    name: "About this",
+    icon: CHROME,
+    src: await fetch(aboutthis.href).then(res => res.text()),
+  },
   {
     name: "CV",
     icon: PDFIcon,

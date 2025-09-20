@@ -1,0 +1,38 @@
+Welcome to Anibal's Windows 7 Portfolio!
+
+This is an interactive portfolio website that mimics the Windows 7 desktop experience.
+
+How to use this website:
+------------------------
+
+🖱️ Desktop Navigation:
+- Click on desktop icons to open applications
+- Double-click to quickly launch apps
+- Drag windows around to reposition them
+- Double-click window title bars to maximize/restore
+
+📋 Applications Available:
+- CV: View and download Anibal's resume in PDF format
+- About me: Learn more about Anibal's background and experience
+- Projects & Games: Interactive demos and portfolio pieces
+- Links: Direct access to GitHub and LinkedIn profiles
+
+⌨️ Window Controls:
+- Use the taskbar at the bottom to switch between open windows
+- Click the X button to close windows
+- Click the minimize button (-) to minimize windows
+- Minimized windows can be restored by clicking their taskbar icon
+
+🎯 Features:
+- Fully responsive design (works on mobile and desktop)
+- Windows 7 authentic styling and animations
+- Interactive desktop environment
+- Multiple portfolio projects and demos
+
+💡 Tips:
+- The website opens with this guide by default
+- You can open multiple applications simultaneously
+- Try the interactive games and projects!
+- All external links open in new tabs
+
+Enjoy exploring the portfolio!
