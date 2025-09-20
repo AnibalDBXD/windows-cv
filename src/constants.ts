@@ -13,7 +13,7 @@ const aboutthis = new URL('./assets/aboutthis.txt', import.meta.url);
 export const MOBILE_NAVBAR_APPS: IApplications[] = [
   {
     name: "About this",
-    icon: CHROME,
+    icon: NOTEPAD,
     src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
@@ -31,7 +31,7 @@ export const MOBILE_NAVBAR_APPS: IApplications[] = [
 export const MOBILE_APPS: IApplications[] = [
   {
     name: "About this",
-    icon: CHROME,
+    icon: NOTEPAD,
     src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
@@ -71,7 +71,7 @@ export const MOBILE_APPS: IApplications[] = [
 export const APPLICATIONS: IApplications[] = [
   {
     name: "About this",
-    icon: CHROME,
+    icon: NOTEPAD,
     src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
