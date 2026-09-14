@@ -6,16 +6,15 @@ import NOTEPAD from "./assets/icons/notepad.webp";
 import BAD_APPLE from "./assets/icons/bad_apple.png";
 import GUESS_THE_GAME from "./assets/icons/guess_the_game.svg";
 import { IApplications } from "./types";
-import aboutMeText from './assets/aboutme.txt?raw';
-import aboutThisText from './assets/aboutthis.txt?raw';
-
 const PDF = new URL('./assets/cv.pdf', import.meta.url);
+const aboutme = new URL('./assets/aboutme.txt', import.meta.url);
+const aboutthis = new URL('./assets/aboutthis.txt', import.meta.url);
 
 export const MOBILE_NAVBAR_APPS: IApplications[] = [
   {
     name: "About this",
     icon: NOTEPAD,
-    src: aboutThisText,
+    src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
     name: "CV",
@@ -25,7 +24,7 @@ export const MOBILE_NAVBAR_APPS: IApplications[] = [
   {
     name: "About me",
     icon: NOTEPAD,
-    src: aboutMeText,
+    src: await fetch(aboutme.href).then(res => res.text()),
   },
 ];
 
@@ -33,7 +32,7 @@ export const MOBILE_APPS: IApplications[] = [
   {
     name: "About this",
     icon: NOTEPAD,
-    src: aboutThisText,
+    src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
     name: "CV",
@@ -43,7 +42,7 @@ export const MOBILE_APPS: IApplications[] = [
   {
     name: "About me",
     icon: NOTEPAD,
-    src: aboutMeText,
+    src: await fetch(aboutme.href).then(res => res.text()),
   },
   {
     name: "Guess the anime",
@@ -73,7 +72,7 @@ export const APPLICATIONS: IApplications[] = [
   {
     name: "About this",
     icon: NOTEPAD,
-    src: aboutThisText,
+    src: await fetch(aboutthis.href).then(res => res.text()),
   },
   {
     name: "CV",
@@ -83,7 +82,7 @@ export const APPLICATIONS: IApplications[] = [
   {
     name: "About me",
     icon: NOTEPAD,
-    src: aboutMeText,
+    src: await fetch(aboutme.href).then(res => res.text()),
   },
   {
     name: "Bad Apple ASCII",
@@ -99,12 +98,7 @@ export const APPLICATIONS: IApplications[] = [
     minWith: 950,
     minHeight: 600,
     src: "https://guesstheanime.app/",
-  },
-  {
-    name: "Simple Version",
-    icon: NOTEPAD,
-    src: "simple.html",
-  },
+  }
 ];
 
 export const DRAWS: IApplications[] = [

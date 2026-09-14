@@ -25,20 +25,6 @@ const ShortCuts: React.FC<IShortCuts> = ({ applications, onClick, className }) =
               onClick(app);
             }
           };
-          if (name === "Simple Version") {
-            return (
-              <li key={name}>
-                <a
-                  className={styles["applicationList__item"]}
-                  href="simple.html"
-                  target="_blank"
-                >
-                  <img className={styles["item_image"]} src={icon} />
-                  <span className={styles["item_name"]}>{name}</span>
-                </a>
-              </li>
-            )
-          }
           return(
             <li key={name}>
               <button
