@@ -1,18 +1,17 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
-import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [reactRefresh()],
   build: {
     target: ['esnext'],
-    outDir: 'dist/client',
+    ssr: true,
+    outDir: 'dist/server',
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        simple: resolve(__dirname, 'simple.html'),
-        simpleMain: resolve(__dirname, 'src/simpleMain.tsx'),
+      input: 'src/simple-server.tsx',
+      output: {
+        format: 'cjs',
       },
     },
   },
