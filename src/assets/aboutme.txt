@@ -1,31 +1,72 @@
-I'm Anibal from Venezuela a Full-stack Developer with a passion for building software.
-I'm currently working as a Full-stack Developer at Zeleri
+I'm Anibal from Venezuela, a Full-stack Developer with a passion for
+building software.
 
-My current experience
--------------------
+I recently finished my role as a Full-stack Developer at Ionix Payments
+(formerly Zeleri), where I led the complete platform rebranding and
+refactoring, building frontend apps with Next.js and TypeScript and
+supporting the backend with high-performance services in Go.
 
-- Zeleri: Frontend developer
-Nov 2022 - Current
 
-- Cobuild lab: Full-stack developer
-September 2021 - Nov 2022
+MY EXPERIENCE
+-------------
 
-The technologies I use
--------------------
+- Ionix Payments: Full-stack Developer
+  Nov 2022 - Sep 2026
+  Led the full refactoring of the Zeleri platform into Ionix Payments.
+  Redesigned frontend apps with Next.js + TypeScript, implemented
+  critical business flows like payment systems and user onboarding,
+  and built performant backend services in Go. Reduced merchant
+  approval times from 1-2 business days to nearly instantaneous
+  through biometric validations and SII integration.
 
-- ⚛️ React.
-- 💻 Node.js.
-- △ Next.js
-- 🚀 Astro
-- 📚 JavaScript.
-- 📚 TypeScript.
-- 🎱 8base is a backend-as-a-service provider (with GraphQL).
-- 📚 GraphQL.
-- 📚 Apollo.
-- And style frameworks like TailwindCSS, Shadcdn, MaterialUI etc...
+- Cobuild Lab: Full-stack Developer
+  September 2021 - Nov 2022
+  Successfully developed and delivered 6+ web applications for a
+  diverse US client portfolio, working end-to-end on frontend
+  (React/Next.js) and backend (Node.js, 8base).
 
--------------------
-what do I like??
+
+THE TECHNOLOGIES I USE
+----------------------
+
+- React
+- Node.js
+- Next.js
+- TypeScript
+- JavaScript
+- Go
+- Python
+- 8base (Backend-as-a-Service with GraphQL)
+- GraphQL
+- Apollo
+- AI-assisted development: Claude Code, Kimi, Gemini
+- Styling frameworks: TailwindCSS, Shadcn, MaterialUI
+- Vercel
+- SASS
+- GitHub Actions
+- AWS
+- Docker
+- PostgreSQL
+- MongoDB
+- Redis
+- MySQL
+- SQLite
+- Etc...
+
+SOME THINGS I'VE BUILT
+----------------------
+
+- windows-cv
+  An interactive portfolio inspired by the Windows 7 interface,
+  built with Next.js + TypeScript.
+
+- GuessTheAnime.app
+  A full-stack app with anime guessing minigames, 15k+ visits
+  (React + SASS).
+
+
+WHAT DO I LIKE??
+----------------
 
 I like to learn new things.
 I like to build things.
